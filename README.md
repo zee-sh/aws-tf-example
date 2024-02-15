@@ -9,6 +9,23 @@ This repository contains terraform code to deploy an AWS Environment with the fo
 - The Public Instance works as a bastion host and ssh-agent forwarding can be used to access the Private instance through it - https://repost.aws/knowledge-center/ec2-linux-private-subnet-bastion-host
 - Both the Public and Private instance have access to the Internet
 
+### Instructions
+
+Clone the repo
+
+```sh
+git clone git@github.com:zee-sh/aws-tf-example.git
+cd aws-tf-example
+cp terraform-tfvars-example terraform.tfvars
+```
+
+Update the variable "ip_to_access_public_instance" in terraform.tfvars to the IP that will be whitelisted for SSH access to Public Instance and then use opentofu to build the environment
+
+```sh
+tofu init
+tofu plan
+tofu apply
+```
 
 ## Requirements
 
