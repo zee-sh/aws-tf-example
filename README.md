@@ -1,5 +1,13 @@
 # aws-tf-example
-AWS Terraform Example
+This repository contains terraform code to deploy an AWS Environment with the following details
+
+- VPC with one or more AZs
+- Each AZ with one or more private and public subnets
+- Each AZ with its own NAT Gateway
+- A Public Instance that can only be accessed (ssh) via an IP specified in the variables
+- A Private Instance that can only be accessed (ssh) via the Public Instance
+- The Public Instance works as a bastion host and ssh-agent forwarding can be used to access the Private instance through it - https://repost.aws/knowledge-center/ec2-linux-private-subnet-bastion-host
+- Both the Public and Private instance have access to the Internet
 
 
 ## Requirements
