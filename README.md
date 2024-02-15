@@ -7,9 +7,10 @@ This repository contains terraform code to deploy an AWS Environment with the fo
 - A Public Instance that can only be accessed (ssh) via an IP specified in the variables
 - A Private Instance that can only be accessed (ssh) via the Public Instance
 - The Public Instance works as a bastion host and ssh-agent forwarding can be used to access the Private instance through it - https://repost.aws/knowledge-center/ec2-linux-private-subnet-bastion-host
-- Both the Public and Private instance have access to the Internet
+- Both the Public and Private instance (via Nat Gateway) have access to the Internet
 
 ### Instructions
+Example variables provided in terraform-tfvars-example will create VPC in EU-West-1 (Ireland) region with two AZs with each AZ having a private and public subnet and redundant NAT Gateways. A public instance and a private instance with internet access. Public Instance can only be accessed via SSH from a single IP specified. Private Instance can only be accessed via SSH from Public Instance
 
 Clone the repo
 
