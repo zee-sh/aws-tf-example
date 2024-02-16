@@ -20,12 +20,18 @@ cd aws-tf-example
 cp terraform-tfvars-example terraform.tfvars
 ```
 
-Update the variable "ip_to_access_public_instance" in terraform.tfvars to the IP that will be whitelisted for SSH access to Public Instance and then use opentofu to build the environment
+Update the variable "ip_to_access_public_instance" in terraform.tfvars to the IP that will be whitelisted for SSH access to Public Instance and then use opentofu to build the environment. If required also update variable "ssh_public_key_path" to the path you want to use to store the ssh key file 
 
 ```sh
 tofu init
 tofu plan
 tofu apply
+```
+
+Once the environment is ready, find the IP of EC2 Public Instance using AWS Console or CLI and SSH to it using the ssh key that was generated and stored in the path specified above
+
+```sh
+ssh -i "aws-tf-example-key-pair" ec2-user@PUBLIC_IP_OF_EC2_PUBLIC_INSTANCE
 ```
 
 ## Requirements
